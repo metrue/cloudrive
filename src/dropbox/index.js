@@ -22,8 +22,8 @@ class Dropbox {
       throw new Error("dest and content are required")
     }
 
-    const body = isNode ? content : new Blob([content], { type })
     const type = options.type || mime.getType(dest)
+    const body = isNode ? content : new Blob([content], { type })
 
 
     // TODO check content size
