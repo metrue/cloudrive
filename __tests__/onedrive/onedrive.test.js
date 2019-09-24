@@ -1,4 +1,4 @@
-const OneDrive = require('../../src/onedrive/onedrive')
+const { OneDrive } = require('../../src')
 const process = require('process')
 const fs = require('fs')
 
