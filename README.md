@@ -13,7 +13,7 @@ npm install cloudrive
 * import to your code
 
 ```
-const { OneDrive } = require('../../src')
+const { OneDrive } = require('cloudrive')
 ```
 
 * upload plain text
