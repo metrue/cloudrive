@@ -18,12 +18,12 @@ describe('onedrive workflow', () => {
 
     dest = `${dir}/hello.jpeg`
     content = fs.readFileSync('__tests__/onedrive/pic.jpeg')
-    res = await api.upload({ dest, content})
+    res = await api.upload({ dest, content })
     expect(res.ok).toBeTruthy()
   }, 15000)
 
   test('get item', async () => {
-    let res = await api.getItem('test')
+    const res = await api.getItem('test')
     expect(res.ok).toBeTruthy()
   })
   test('list', async () => {

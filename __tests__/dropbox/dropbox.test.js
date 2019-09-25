@@ -20,7 +20,7 @@ describe('dropbox workflow', () => {
 
     dest = `${dir}/hello.jpeg`
     content = fs.readFileSync('__tests__/dropbox/pic.jpeg')
-    res = await api.upload({ dest, content})
+    res = await api.upload({ dest, content })
     expect(res.name).toBe('hello.jpeg')
     expect(res.id).not.toBe('')
     expect(res.path_lower).toBe(`${dest}`)
