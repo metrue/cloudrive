@@ -33,7 +33,8 @@ const { OneDrive } = require('../../src')
 ```
 
 * upload image
-```
+
+```javascript
     // Your onedrive oauth access token
     const tok = process.env.ONE_DRIVE_TOKEN
     const api = new OneDrive(tok)
@@ -49,7 +50,7 @@ const { OneDrive } = require('../../src')
 
 * download a file
 
-```
+```javascript
     // Your onedrive oauth access token
     const tok = process.env.ONE_DRIVE_TOKEN
     const api = new OneDrive(tok)
