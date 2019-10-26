@@ -1,10 +1,11 @@
 const NutCloud = require('./')
 const fs = require('fs')
+const process = require('process')
 
 test('NutCloud', async () => {
-  const username = '***REMOVED***'
-  const password = '***REMOVED***'
-  const server = '***REMOVED***'
+  const username = process.env.NUTCLOUD_USERNAME
+  const password = process.env.NUTCLOUD_PASSWORD
+  const server = process.env.NUTCLOUD_SERVER
   const nc = new NutCloud({ server, username, password })
   expect(nc).not.toBe(null)
 
