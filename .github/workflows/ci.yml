@@ -18,7 +18,7 @@ jobs:
           node-version: 12
       - run: |
           npm ci
-          npm test
+          npm test -- src/nutcloud
         env:
           NUTCLOUD_USERNAME: ${{secrets.nutcloud_username}}
           NUTCLOUD_PASSWORD: ${{secrets.nutcloud_password}}
