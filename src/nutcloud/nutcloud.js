@@ -16,8 +16,17 @@ class NutCloud {
     this.client = createClient(server, { username, password })
   }
 
+  async ping() {
+    try {
+      await this.list('/')
+      return true
+    } catch (e) {
+      return false
+    }
+  }
+
   async list(dir = '/') {
-    this.client.getDirectoryContents(dir, { deep: false })
+    return this.client.getDirectoryContents(dir, { deep: false })
   }
 
   async upload(options = {}) {
