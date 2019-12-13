@@ -3,11 +3,20 @@ const fs = require('fs')
 const process = require('process')
 
 test('NutCloud', async () => {
+  let nc = new NutCloud({
+    server: 'https://dav.jianguoyun.com/dav/',
+    username: 'invalid usernmae',
+    password: 'invalid password',
+  })
+  expect(nc).not.toBe(null)
+  expect(await nc.ping()).toBe(false)
+
   const username = process.env.NUTCLOUD_USERNAME
   const password = process.env.NUTCLOUD_PASSWORD
   const server = process.env.NUTCLOUD_SERVER
-  const nc = new NutCloud({ server, username, password })
+  nc = new NutCloud({ server, username, password })
   expect(nc).not.toBe(null)
+  expect(await nc.ping()).toBe(true)
 
   let err = null
   try {
