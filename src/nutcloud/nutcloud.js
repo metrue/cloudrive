@@ -18,9 +18,10 @@ class NutCloud {
 
   async ping() {
     try {
-      await this.list('/')
+      await this.createDir('hello')
       return true
     } catch (e) {
+      console.warn(e.response.status)
       return false
     }
   }
@@ -33,6 +34,7 @@ class NutCloud {
     const {
       dest,
       content,
+      onUploadProgress,
     } = options
     if (!dest || !content) {
       throw new Error('dest and content are required')
@@ -41,9 +43,9 @@ class NutCloud {
     const body = isNode ? content : new Blob([content], { type })
 
     if (type === 'text/plain') {
-      return this.client.putFileContents(dest, content)
+      return this.client.putFileContents(dest, content, { onUploadProgress })
     }
-    return this.client.putFileContents(dest, body, { overwrite: false })
+    return this.client.putFileContents(dest, body, { overwrite: false, onUploadProgress })
   }
 
   async createDir(dir) {
