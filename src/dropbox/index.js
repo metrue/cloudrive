@@ -31,13 +31,13 @@ class Dropbox {
     })
   }
 
-  async getItem(path, onlyContent = false) {
+  async getItem(path, options = {}) {
     const res = this.dbx.filesGetTemporaryLink({ path })
-    if (onlyContent) {
+    if (options && options.onlyContent) {
       return fetch(res.link, {
         method: 'GET',
         headers: {
-          'Content-Type': mime.getType(path),
+          'Content-Type': options.type || mime.getType(path),
         },
       })
     }
