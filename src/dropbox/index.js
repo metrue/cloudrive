@@ -28,18 +28,29 @@ class Dropbox {
     return this.dbx.filesUpload({
       path: dest,
       contents: body,
+      mode: 'overwrite',
     })
   }
 
   async getItem(path, options = {}) {
-    const res = this.dbx.filesGetTemporaryLink({ path })
+    const res = await this.dbx.filesGetTemporaryLink({ path })
     if (options && options.onlyContent) {
-      return fetch(res.link, {
+      const r = await fetch(res.link, {
         method: 'GET',
         headers: {
           'Content-Type': options.type || mime.getType(path),
         },
       })
+      if (r.ok) {
+        if (options.type === 'text') {
+          return r.text()
+        }
+        if (options.type === 'json') {
+          return r.json()
+        }
+        return r.blob()
+      }
+      return new Error(`download file failed: ${r.status}`)
     }
     return res
   }
