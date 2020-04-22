@@ -26,8 +26,9 @@
     "babel-eslint": "^10.0.3",
     "browser-or-node": "^1.2.1",
     "dropbox": "^4.0.30",
+    "es6-promise": "^4.2.8",
+    "isomorphic-fetch": "^2.2.1",
     "mime": "^2.4.4",
-    "webdav": "^2.10.0",
-    "whatwg-fetch": "^3.16.1"
+    "webdav": "^2.10.0"
   }
 }
