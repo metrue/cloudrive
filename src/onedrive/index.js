@@ -1,4 +1,4 @@
-const { fetch } = require('whatwg-fetch')
+const fetch = require('isomorphic-fetch')
 const mime = require('mime')
 const { isNode } = require('browser-or-node')
 

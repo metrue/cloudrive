@@ -1,4 +1,5 @@
-const { fetch } = require('whatwg-fetch')
+require('es6-promise')
+const fetch = require('isomorphic-fetch')
 const { isNode } = require('browser-or-node')
 const mime = require('mime')
 const sdk = require('dropbox')
