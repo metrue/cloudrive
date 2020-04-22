@@ -28,6 +28,6 @@
     "dropbox": "^4.0.30",
     "mime": "^2.4.4",
     "webdav": "^2.10.0",
-    "whatwg-fetch": "^3.0.0"
+    "whatwg-fetch": "^3.16.1"
   }
 }
